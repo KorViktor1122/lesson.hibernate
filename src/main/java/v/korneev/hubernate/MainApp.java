@@ -12,12 +12,16 @@ public class MainApp {
 
         Session session = null;
         try {
-            session = factory.getCurrentSession();
-            session.beginTransaction();
-            User user = session.get(User.class,1L);
-            user.print();
 
 
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            {
+                factory.close();
+                if ((session != null));
+                session.close();
+            }
         }
     }
 }
